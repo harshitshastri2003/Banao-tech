@@ -1,0 +1,11 @@
+venv/
+.env
+tickets.csv
+agents.csv
+customers.csv
+orders.csv
+products.csv
+results.csv
+full_results.csv
+manual_check_sample.csv
+__pycache__/
