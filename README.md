@@ -35,6 +35,7 @@ This calls the AI once per ticket (~11,780 tickets), so it takes a few hours. Pr
 - A team-routing rule (same logic the company already applies, just fed the corrected category instead of the chatbot's guess)
 - A manual validation step on 20 random tickets, checked by hand, comparing the old label vs the AI's label against our own read of each ticket
 - Result: old tags matched our own judgment 55% of the time. The AI's re-categorization matched 85% of the time.
+- - Ran the categorizer on 6,087 tickets (Jan 2025–Nov 2025, ~52% of the full dataset)
 
 
 
@@ -59,5 +60,9 @@ This calls the AI once per ticket (~11,780 tickets), so it takes a few hours. Pr
 
 - `test_categorize.py` — quick test run on 100 random tickets, used before committing to the full run
 - `pick_sample.py` — pulls 20 random tickets with a short AI-written summary, for manual accuracy checking
+
+## A note on how the full run actually went
+
+We started on Groq's free tier. It hit a hard daily limit (200,000 tokens/day for this model) after about 2,500 tickets. Rather than stop there, we added billing to Together.ai and used it to process the remaining tickets, since Groq's paid tier was closed for new signups at the time. In total we categorized **6,087 tickets — about 52% of the full dataset**, covering January 2025 through November 2025. We ran out of processing time before reaching December 2025 onward, due to a mix of rate limits and a couple of provider outages along the way.
 
 
